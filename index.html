@@ -2922,18 +2922,18 @@
               <!-- Main Photo Wrap with Arrow Navigation -->
               <div class="product-sheet-photo-wrap" title="Фото товара">
                 
-                <button type="button" class="gallery-arrow-btn prev" onclick="navigateModalGallery(-1, event)" aria-label="Предыдущее фото" title="Предыдущий ракурс">
+                <button type="button" class="gallery-arrow-btn prev" id="mGalleryPrevBtn" onclick="navigateModalGallery(-1, event)" aria-label="Предыдущее фото" title="Предыдущий ракурс" style="display: none;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
 
                 <img id="mPhotoImg" src="" alt="Product Photo">
 
-                <button type="button" class="gallery-arrow-btn next" onclick="navigateModalGallery(1, event)" aria-label="Следующее фото" title="Следующий ракурс">
+                <button type="button" class="gallery-arrow-btn next" id="mGalleryNextBtn" onclick="navigateModalGallery(1, event)" aria-label="Следующее фото" title="Следующий ракурс" style="display: none;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
 
                 <!-- Top Left Photo Counter -->
-                <div class="photo-counter-pill" id="mPhotoCounterBadge">1 / 4</div>
+                <div class="photo-counter-pill" id="mPhotoCounterBadge" style="display: none;">1 / 1</div>
 
                 <!-- Bottom Right Glass Zoom Badge -->
                 <div class="photo-glass-zoom" onclick="openProductLightbox()" style="cursor: pointer;" title="Открыть фото на весь экран">
@@ -5299,8 +5299,8 @@
     "id": "8900003923053815",
     "mainCat": "HOODIES",
     "brand": "Stussy",
-    "series": "Stussy Hoodie",
-    "title": "Stussy Streetwear Hoodie • Белый",
+    "series": "Stussy World Cruise",
+    "title": "Stussy World Cruise Collection Hoodie • Серый",
     "category": "Худи и кофты",
     "price_rub": 24726,
     "price_yuan": 1605,
@@ -5314,17 +5314,16 @@
     "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20251128/1c905593ab2a4abbb0d77ea7a98b37c6.jpg?x-oss-process=image/format,webp",
     "images": [
       "https://cdn-img.thepoizon.ru/pro-img/origin-img/20251128/1c905593ab2a4abbb0d77ea7a98b37c6.jpg?x-oss-process=image/format,webp",
-      "https://cdn-img.thepoizon.ru/pro-img/origin-img/20250506/d093f4ad7d2d4eff9c838f834dd1dbcc.jpg?x-oss-process=image/format,webp",
-      "https://cdn-img.thepoizon.ru/pro-img/origin-img/20250506/eb4abc3e1d124c969ebbae5dfc51071e.jpg?x-oss-process=image/format,webp"
+      "https://cdn-img.thepoizon.ru/pro-img/origin-img/20251128/71e2559a2eba4f60894e85fb91ea9c7a.jpg?x-oss-process=image/format,webp"
     ],
     "colors": [
       {
-        "name": "Белый",
+        "name": "Серый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20251128/1c905593ab2a4abbb0d77ea7a98b37c6.jpg?x-oss-process=image/format,webp",
-        "hex": "#ffffff"
+        "hex": "#94a3b8"
       }
     ],
-    "color": "Белый"
+    "color": "Серый"
   },
   {
     "id": "8900019602614260",
@@ -5686,8 +5685,8 @@
     "id": "8900001308386598",
     "mainCat": "HOODIES",
     "brand": "Thrasher",
-    "series": "Thrasher Hoodie",
-    "title": "Thrasher Skate Mag Hoodie • Серый",
+    "series": "Thrasher Skate Mag",
+    "title": "Thrasher Skate Mag Fleece Hoodie • Серый",
     "category": "Худи и кофты",
     "price_rub": 5741,
     "price_yuan": 270,
@@ -5713,40 +5712,11 @@
     "color": "Серый"
   },
   {
-    "id": "8900001308386598-2",
-    "mainCat": "HOODIES",
-    "brand": "Thrasher",
-    "series": "Thrasher Hoodie",
-    "title": "Thrasher Skate Mag Hoodie • Белый",
-    "category": "Худи и кофты",
-    "price_rub": 5741,
-    "price_yuan": 270,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "img": "https://cdn-img.thepoizon.ru/pro-img/20201113/977338708a6f42a8b45f8a6d40f9bb9e.jpg?x-oss-process=image/format,webp",
-    "images": [
-      "https://cdn-img.thepoizon.ru/pro-img/20201113/977338708a6f42a8b45f8a6d40f9bb9e.jpg?x-oss-process=image/format,webp"
-    ],
-    "colors": [
-      {
-        "name": "Белый",
-        "img": "https://cdn-img.thepoizon.ru/pro-img/20201113/977338708a6f42a8b45f8a6d40f9bb9e.jpg?x-oss-process=image/format,webp",
-        "hex": "#ffffff"
-      }
-    ],
-    "color": "Белый"
-  },
-  {
     "id": "8900339107474319",
     "mainCat": "HOODIES",
     "brand": "Dickies",
     "series": "Dickies Hoodie",
-    "title": "Dickies Streetwear Hoodie • Черный",
+    "title": "Dickies Classic Pullover Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 4973,
     "price_yuan": 215,
@@ -5776,8 +5746,8 @@
     "id": "8900152047530128",
     "mainCat": "HOODIES",
     "brand": "YEEZY",
-    "series": "YEEZY Hoodie",
-    "title": "YEEZY Concert Merch Hoodie • Черный",
+    "series": "YEEZY Concert Merch",
+    "title": "YEEZY Shanghai Concert Merch Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 4740,
     "price_yuan": 198,
@@ -5807,8 +5777,8 @@
     "id": "8900151931521901",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Hoodie",
-    "title": "LONSDALE Streetwear Hoodie • Белый",
+    "series": "LONSDALE Sport",
+    "title": "LONSDALE Basic Sport Hoodie • Серый",
     "category": "Худи и кофты",
     "price_rub": 4064,
     "price_yuan": 149,
@@ -5826,19 +5796,19 @@
     ],
     "colors": [
       {
-        "name": "Белый",
+        "name": "Серый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20250710/7034a1aaa2fa43498a73ca958ca5a0b6.jpg?x-oss-process=image/format,webp",
-        "hex": "#ffffff"
+        "hex": "#94a3b8"
       }
     ],
-    "color": "Белый"
+    "color": "Серый"
   },
   {
     "id": "8900151931521901-2",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Hoodie",
-    "title": "LONSDALE Streetwear Hoodie • Черный",
+    "series": "LONSDALE Sport",
+    "title": "LONSDALE Basic Sport Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 4064,
     "price_yuan": 149,
@@ -5867,8 +5837,8 @@
     "id": "8900371018282390",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Hoodie",
-    "title": "LONSDALE Streetwear Hoodie • Черный",
+    "series": "LONSDALE Streetwear",
+    "title": "LONSDALE Classic Streetwear Hoodie • Серый",
     "category": "Худи и кофты",
     "price_rub": 3369,
     "price_yuan": 99,
@@ -5886,19 +5856,19 @@
     ],
     "colors": [
       {
-        "name": "Черный",
+        "name": "Серый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20260905/54e969332e664e91b7c0c073299a8780.jpg?x-oss-process=image/format,webp",
-        "hex": "#111111"
+        "hex": "#94a3b8"
       }
     ],
-    "color": "Черный"
+    "color": "Серый"
   },
   {
     "id": "8900371018282390-2",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Hoodie",
-    "title": "LONSDALE Streetwear Hoodie • Белый",
+    "series": "LONSDALE Streetwear",
+    "title": "LONSDALE Classic Streetwear Hoodie • Белый",
     "category": "Худи и кофты",
     "price_rub": 3369,
     "price_yuan": 99,
@@ -5927,8 +5897,8 @@
     "id": "8900101693664246",
     "mainCat": "HOODIES",
     "brand": "Alo Yoga",
-    "series": "Alo Yoga Hoodie",
-    "title": "Alo Yoga Accolade Heavyweight Hoodie • Черный",
+    "series": "Alo Yoga Accolade",
+    "title": "Alo Yoga Accolade Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 14878,
     "price_yuan": 930,
@@ -5957,9 +5927,9 @@
   {
     "id": "8900170269492034",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Черный",
+    "brand": "Essentials",
+    "series": "Fear Of God",
+    "title": "Fear Of God Essentials Fleece Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 12283,
     "price_yuan": 742,
@@ -5989,8 +5959,8 @@
     "id": "8900001603725928",
     "mainCat": "HOODIES",
     "brand": "Adidas",
-    "series": "Adidas Hoodie",
-    "title": "Adidas Streetwear Hoodie • Черный",
+    "series": "Adidas Trefoil",
+    "title": "Adidas Trefoil Sport Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 4321,
     "price_yuan": 168,
@@ -6018,9 +5988,9 @@
   {
     "id": "8900070142676365",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Черный",
+    "brand": "New Balance",
+    "series": "New Balance Hoodie",
+    "title": "New Balance Classic Logo Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 4220,
     "price_yuan": 160,
@@ -6048,9 +6018,9 @@
   {
     "id": "8900082934696084",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Черный",
+    "brand": "New Era",
+    "series": "New Era Hoodie",
+    "title": "New Era Classic Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 5396,
     "price_yuan": 245,
@@ -6078,9 +6048,9 @@
   {
     "id": "8900044854861134",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Белый",
+    "brand": "Polo Ralph Lauren",
+    "series": "Polo Ralph Lauren",
+    "title": "Polo Ralph Lauren Half-Zip Sweatshirt • Белый",
     "category": "Худи и кофты",
     "price_rub": 9889,
     "price_yuan": 570,
@@ -6104,35 +6074,6 @@
       }
     ],
     "color": "Белый"
-  },
-  {
-    "id": "8900044854861134-2",
-    "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Черный",
-    "category": "Худи и кофты",
-    "price_rub": 9889,
-    "price_yuan": 570,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20240831/f914d4f493ed40efb9f5c7e8e89b93ab.jpg?x-oss-process=image/format,webp",
-    "images": [
-      "https://cdn-img.thepoizon.ru/pro-img/origin-img/20240831/f914d4f493ed40efb9f5c7e8e89b93ab.jpg?x-oss-process=image/format,webp"
-    ],
-    "colors": [
-      {
-        "name": "Черный",
-        "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20240831/f914d4f493ed40efb9f5c7e8e89b93ab.jpg?x-oss-process=image/format,webp",
-        "hex": "#111111"
-      }
-    ],
-    "color": "Черный"
   },
   {
     "id": "8900343041878902",
@@ -6196,9 +6137,9 @@
   {
     "id": "8900090126058422",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Черный",
+    "brand": "ANTA",
+    "series": "ANTA Basketball",
+    "title": "ANTA Basketball Collection Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 3244,
     "price_yuan": 90,
@@ -6226,8 +6167,8 @@
     "id": "8900087143222478",
     "mainCat": "HOODIES",
     "brand": "Dickies",
-    "series": "Dickies Hoodie",
-    "title": "Dickies Streetwear Hoodie • Черный",
+    "series": "Dickies Crewneck",
+    "title": "Dickies Classic Crewneck Sweatshirt • Черный",
     "category": "Худи и кофты",
     "price_rub": 3504,
     "price_yuan": 109,
@@ -6286,9 +6227,9 @@
   {
     "id": "8900328414329767",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Серый",
+    "brand": "UNIQLO",
+    "series": "UNIQLO Hoodie",
+    "title": "UNIQLO Classic Pullover Hoodie • Дымчатый Серый",
     "category": "Худи и кофты",
     "price_rub": 4801,
     "price_yuan": 202,
@@ -6305,12 +6246,12 @@
     ],
     "colors": [
       {
-        "name": "Серый",
+        "name": "Дымчатый Серый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20260630/bfb78927cbf24178afcf9bc25ec9c3c7.jpg?x-oss-process=image/format,webp",
-        "hex": "#94a3b8"
+        "hex": "#64748b"
       }
     ],
-    "color": "Серый"
+    "color": "Дымчатый Серый"
   },
   {
     "id": "8900280596114037",
@@ -6345,9 +6286,9 @@
   {
     "id": "8900093267613699",
     "mainCat": "HOODIES",
-    "brand": "Stussy",
-    "series": "Streetwear Hoodie",
-    "title": "Streetwear Streetwear Hoodie • Серый",
+    "brand": "U.S. POLO ASSN.",
+    "series": "U.S. POLO ASSN.",
+    "title": "U.S. POLO ASSN. Classic Sweatshirt • Серый",
     "category": "Худи и кофты",
     "price_rub": 3631,
     "price_yuan": 118,
@@ -6438,9 +6379,9 @@
   {
     "id": "8900144547223679",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Черный",
+    "brand": "Jordan",
+    "series": "Jordan Basketball",
+    "title": "Jordan Basketball Graphic T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 4104,
     "price_yuan": 188,
@@ -6468,9 +6409,9 @@
   {
     "id": "8900144484986592",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Белый",
+    "brand": "Jordan",
+    "series": "Jordan Basketball",
+    "title": "Jordan Basketball Graphic T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 3755,
     "price_yuan": 163,
@@ -6617,9 +6558,9 @@
   {
     "id": "8900000857861041",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Белый",
+    "brand": "New Balance",
+    "series": "New Balance Tee",
+    "title": "New Balance Classic T-Shirt • Айвори",
     "category": "Футболки",
     "price_rub": 3090,
     "price_yuan": 115,
@@ -6637,19 +6578,19 @@
     ],
     "colors": [
       {
-        "name": "Белый",
+        "name": "Айвори",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20260824/c6218237567344eaa84fe965d35e1b64.jpg?x-oss-process=image/format,webp",
-        "hex": "#ffffff"
+        "hex": "#fef3c7"
       }
     ],
-    "color": "Белый"
+    "color": "Айвори"
   },
   {
     "id": "8900001324649797",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Черный",
+    "brand": "Champion",
+    "series": "Champion Tee",
+    "title": "Champion Classic Logo T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 2797,
     "price_yuan": 94,
@@ -6675,40 +6616,11 @@
     "color": "Черный"
   },
   {
-    "id": "8900001324649797-2",
-    "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Белый",
-    "category": "Футболки",
-    "price_rub": 2797,
-    "price_yuan": 94,
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "img": "https://cdn-img.thepoizon.ru/pro-img/20201215/17c69354c212406bad76ef337e4e0b48.jpg?x-oss-process=image/format,webp",
-    "images": [
-      "https://cdn-img.thepoizon.ru/pro-img/20201215/17c69354c212406bad76ef337e4e0b48.jpg?x-oss-process=image/format,webp"
-    ],
-    "colors": [
-      {
-        "name": "Белый",
-        "img": "https://cdn-img.thepoizon.ru/pro-img/20201215/17c69354c212406bad76ef337e4e0b48.jpg?x-oss-process=image/format,webp",
-        "hex": "#ffffff"
-      }
-    ],
-    "color": "Белый"
-  },
-  {
     "id": "8900325637137443",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Черный",
+    "brand": "LDJ",
+    "series": "LDJ Tee",
+    "title": "LDJ Classic Streetwear T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 1824,
     "price_yuan": 23,
@@ -6736,8 +6648,8 @@
     "id": "8900202507247307",
     "mainCat": "TEES",
     "brand": "Adidas",
-    "series": "Adidas Tee",
-    "title": "Adidas Graphic T-Shirt • Белый",
+    "series": "Adidas Originals",
+    "title": "Adidas Originals 3-Stripes Rugby Polo • Белый",
     "category": "Футболки",
     "price_rub": 5796,
     "price_yuan": 310,
@@ -6765,9 +6677,9 @@
   {
     "id": "8900070731443345",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Белый",
+    "brand": "Acne Studios",
+    "series": "Acne Studios Tee",
+    "title": "Acne Studios Minimal T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 25719,
     "price_yuan": 1749,
@@ -6825,9 +6737,9 @@
   {
     "id": "8900295064772276",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Белый",
+    "brand": "Jordan",
+    "series": "Jordan Flight",
+    "title": "Jordan Flight Graphic T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 5765,
     "price_yuan": 308,
@@ -6886,9 +6798,9 @@
   {
     "id": "8900312627181155",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Белый",
+    "brand": "SPRAYGROUND",
+    "series": "SPRAYGROUND NBA",
+    "title": "SPRAYGROUND NBA HWC T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 3387,
     "price_yuan": 136,
@@ -6916,9 +6828,9 @@
   {
     "id": "8900312627181155-2",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Черный",
+    "brand": "SPRAYGROUND",
+    "series": "SPRAYGROUND NBA",
+    "title": "SPRAYGROUND NBA HWC T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 3387,
     "price_yuan": 136,
@@ -6946,9 +6858,9 @@
   {
     "id": "8900030021128868",
     "mainCat": "TEES",
-    "brand": "Carhartt",
-    "series": "Streetwear Tee",
-    "title": "Streetwear Graphic T-Shirt • Черный",
+    "brand": "Under Armour",
+    "series": "Under Armour HeatGear",
+    "title": "Under Armour HeatGear Sport T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 4017,
     "price_yuan": 182,
@@ -7507,7 +7419,7 @@
       return [item.img];
     }
 
-    function selectModalGalleryIndex(idx) {
+        function selectModalGalleryIndex(idx) {
       if (!currentModalGallery || !currentModalGallery.length) return;
       idx = Math.max(0, Math.min(idx, currentModalGallery.length - 1));
       currentModalGalleryIndex = idx;
@@ -7517,10 +7429,10 @@
       const counter = document.getElementById('mPhotoCounterBadge');
       if (counter) {
         if (currentModalGallery.length > 1) {
-          counter.style.display = 'block';
+          counter.style.setProperty('display', 'block', 'important');
           counter.innerText = `${idx + 1} / ${currentModalGallery.length}`;
         } else {
-          counter.style.display = 'none';
+          counter.style.setProperty('display', 'none', 'important');
         }
       }
       document.querySelectorAll('#mPhotoThumbsList .gallery-thumb').forEach((th, i) => {
@@ -7541,6 +7453,7 @@
           });
         }
       }
+    }
     }
 
     function navigateModalGallery(delta, e) {
@@ -9658,19 +9571,19 @@
         }).join('');
       }
 
-      // Gallery init
+            // Gallery init
       if (typeof getItemGallery === 'function') {
         currentModalGallery = getItemGallery(currentModalItem);
         currentModalGalleryIndex = 0;
         const thumbsContainer = document.getElementById('mPhotoThumbsList');
-        const prevBtn = document.querySelector('.gallery-arrow-btn.prev');
-        const nextBtn = document.querySelector('.gallery-arrow-btn.next');
+        const prevBtn = document.getElementById('mGalleryPrevBtn') || document.querySelector('.gallery-arrow-btn.prev');
+        const nextBtn = document.getElementById('mGalleryNextBtn') || document.querySelector('.gallery-arrow-btn.next');
         const counterBadge = document.getElementById('mPhotoCounterBadge');
 
         if (thumbsContainer) {
           thumbsContainer.innerHTML = '';
           if (currentModalGallery.length > 1) {
-            thumbsContainer.style.display = 'flex';
+            thumbsContainer.style.setProperty('display', 'flex', 'important');
             thumbsContainer.innerHTML = currentModalGallery.map((src, i) => {
               const thumbSrc = src.includes('thepoizon.ru') 
                 ? (src.includes('?') ? src.replace(/\?.*/, '?x-oss-process=image/resize,w_120/format,webp') : src + '?x-oss-process=image/resize,w_120/format,webp')
@@ -9682,19 +9595,21 @@
               `;
             }).join('');
           } else {
-            thumbsContainer.style.display = 'none';
+            thumbsContainer.style.setProperty('display', 'none', 'important');
           }
         }
 
-        if (prevBtn) prevBtn.style.display = (currentModalGallery.length > 1) ? 'flex' : 'none';
-        if (nextBtn) nextBtn.style.display = (currentModalGallery.length > 1) ? 'flex' : 'none';
-        if (counterBadge) {
-          if (currentModalGallery.length > 1) {
-            counterBadge.style.display = 'block';
+        if (currentModalGallery.length > 1) {
+          if (prevBtn) prevBtn.style.setProperty('display', 'flex', 'important');
+          if (nextBtn) nextBtn.style.setProperty('display', 'flex', 'important');
+          if (counterBadge) {
+            counterBadge.style.setProperty('display', 'block', 'important');
             counterBadge.innerText = '1 / ' + currentModalGallery.length;
-          } else {
-            counterBadge.style.display = 'none';
           }
+        } else {
+          if (prevBtn) prevBtn.style.setProperty('display', 'none', 'important');
+          if (nextBtn) nextBtn.style.setProperty('display', 'none', 'important');
+          if (counterBadge) counterBadge.style.setProperty('display', 'none', 'important');
         }
 
         if (typeof selectModalGalleryIndex === 'function') selectModalGalleryIndex(0);
