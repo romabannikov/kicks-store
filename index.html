@@ -606,9 +606,27 @@
 
     /* Bottom Store Bar */
     .store-bar-bottom {
-      background: #ffffff;
-      padding: 12px 16px;
-      border-top: 1px solid var(--border);
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 10px 16px !important;
+      box-sizing: border-box !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+      z-index: 990 !important;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+    .phone {
+      padding-bottom: 76px !important;
+    }
+    .store-screen {
+      padding-bottom: 76px !important;
     }
 
     .store-order-main-btn {
@@ -2839,7 +2857,10 @@
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <button onclick="requestManagerConsultation('Помощь в подборе товаров')" style="background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; border-radius: 6px; padding: 5px 9px; font-size: 11px; font-weight: 700; cursor: pointer;">Консультация</button>
-            
+            <button type="button" onclick="openCartDrawer()" id="headerCartBtn" style="background: #0f172a; color: #ffffff; border: none; border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: background 0.2s ease;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span>Корзина (<b id="headerCartCountBadge">0</b>)</span>
+            </button>
           </div>
         </div>
 
@@ -2885,11 +2906,14 @@
 
         </div>
 
-        <!-- 4. Floating Cart Bar -->
+        <!-- 4. Persistent Floating Bottom Cart Bar -->
         <div class="store-bar-bottom">
-          <button onclick="openCartDrawer()" class="store-order-main-btn">
-            <span>Корзина (<span id="cartCountBadge">0</span>)</span>
-            <span id="cartSumBadge">0 ₽ • Оформить заказ →</span>
+          <button onclick="openCartDrawer()" class="store-order-main-btn" id="bottomCartBarBtn">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <span>Корзина (<b id="cartCountBadge">0</b>)</span>
+            </div>
+            <span id="cartSumBadge">Перейти в корзину →</span>
           </button>
         </div>
 
@@ -9775,10 +9799,35 @@
       const count = cart.length;
       const total = cart.reduce((sum, it) => sum + it.price_rub, 0);
 
+      // Header button count & color
+      const headerCountBadge = document.getElementById('headerCartCountBadge');
+      if (headerCountBadge) headerCountBadge.innerText = count;
+      const headerCartBtn = document.getElementById('headerCartBtn');
+      if (headerCartBtn) {
+        if (count > 0) {
+          headerCartBtn.style.background = '#15803d';
+        } else {
+          headerCartBtn.style.background = '#0f172a';
+        }
+      }
+
+      // Bottom floating bar count, total sum & color
       const countBadge = document.getElementById('cartCountBadge');
       if (countBadge) countBadge.innerText = count;
       const sumBadge = document.getElementById('cartSumBadge');
-      if (sumBadge) sumBadge.innerText = total > 0 ? (total.toLocaleString('ru-RU') + ' ₽ • Оформить →') : '0 ₽ • Каталог';
+      if (sumBadge) {
+        sumBadge.innerText = total > 0 ? `${total.toLocaleString('ru-RU')} ₽ • Оформить заказ →` : 'Перейти в корзину →';
+      }
+      const bottomCartBtn = document.getElementById('bottomCartBarBtn');
+      if (bottomCartBtn) {
+        if (count > 0) {
+          bottomCartBtn.style.background = '#15803d';
+          bottomCartBtn.style.boxShadow = '0 4px 18px rgba(21, 128, 61, 0.45)';
+        } else {
+          bottomCartBtn.style.background = '#000000';
+          bottomCartBtn.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.25)';
+        }
+      }
 
       const sumSub = document.getElementById('cartSumSubtotal');
       if (sumSub) sumSub.innerText = total.toLocaleString('ru-RU') + ' ₽';
@@ -12149,6 +12198,9 @@
       }
       if (typeof renderStoreCards === 'function') {
         renderStoreCards();
+      }
+      if (typeof updateCartUI === 'function') {
+        updateCartUI();
       }
       if (typeof initDropProductSelect === 'function') {
         initDropProductSelect();
