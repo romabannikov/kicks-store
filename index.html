@@ -1829,19 +1829,32 @@
       position: absolute;
       bottom: 10px;
       right: 10px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.12);
       color: #0f172a;
       font-size: 11px;
       font-weight: 700;
-      padding: 4px 9px;
+      padding: 5px 11px;
       border-radius: 20px;
       display: flex;
       align-items: center;
       gap: 5px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      z-index: 25 !important;
+      transition: transform 0.15s ease, background 0.15s ease;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .photo-glass-zoom:hover {
+      background: #ffffff;
+      transform: scale(1.04);
+    }
+    .photo-glass-zoom:active {
+      transform: scale(0.95);
     }
 
     .product-sheet-meta {
@@ -2900,7 +2913,7 @@
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
 
-                <img id="mPhotoImg" src="" alt="Product Photo">
+                <img id="mPhotoImg" src="" alt="Product Photo" onclick="openProductLightbox(event)" style="cursor: zoom-in;">
 
                 <button type="button" class="gallery-arrow-btn next" id="mGalleryNextBtn" onclick="navigateModalGallery(1, event)" aria-label="Следующее фото" title="Следующий ракурс" style="display: none;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -2910,7 +2923,7 @@
                 <div class="photo-counter-pill" id="mPhotoCounterBadge" style="display: none;">1 / 1</div>
 
                 <!-- Bottom Right Glass Zoom Badge -->
-                <div class="photo-glass-zoom" onclick="openProductLightbox()" style="cursor: pointer;" title="Открыть фото на весь экран">
+                <div class="photo-glass-zoom" onclick="openProductLightbox(event)" style="cursor: pointer;" title="Открыть фото на весь экран">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
                   <span>Увеличить</span>
                 </div>
@@ -5391,8 +5404,8 @@
     "id": "8900104456863309-2",
     "mainCat": "HOODIES",
     "brand": "Stussy",
-    "series": "Stussy Hoodie",
-    "title": "Stussy Crown Embroidered Hoodie • Бежевый",
+    "series": "Stussy Back Logo",
+    "title": "Stussy Back Logo Zip Hoodie • Горчичный",
     "category": "Худи и кофты",
     "price_rub": 23627,
     "price_yuan": 1525,
@@ -5410,12 +5423,12 @@
     ],
     "colors": [
       {
-        "name": "Бежевый",
+        "name": "Горчичный",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20250326/415dee59baa5499dbed68166819085f0.jpg?x-oss-process=image/format,webp",
-        "hex": "#e2d7c5"
+        "hex": "#d97706"
       }
     ],
-    "color": "Бежевый"
+    "color": "Горчичный"
   },
   {
     "id": "8900095873491945",
@@ -5509,8 +5522,8 @@
     "id": "8900006621614542-2",
     "mainCat": "HOODIES",
     "brand": "Stussy",
-    "series": "Stussy Hoodie",
-    "title": "Stussy Crown Embroidered Hoodie • Бежевый",
+    "series": "Stussy Basic Logo",
+    "title": "Stussy Basic Logo Hoodie • Оранжевый",
     "category": "Худи и кофты",
     "price_rub": 15343,
     "price_yuan": 927,
@@ -5528,12 +5541,12 @@
     ],
     "colors": [
       {
-        "name": "Бежевый",
+        "name": "Оранжевый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20250304/a7c1e9b5784948d58369bcc7022eaba7.jpg?x-oss-process=image/format,webp",
-        "hex": "#e2d7c5"
+        "hex": "#f97316"
       }
     ],
-    "color": "Бежевый"
+    "color": "Оранжевый"
   },
   {
     "id": "8900055295973896",
@@ -5595,7 +5608,7 @@
     ],
     "color": "Черный"
   },
-    {
+  {
     "id": "8900325506686369-pink",
     "mainCat": "HOODIES",
     "brand": "Stussy",
@@ -5779,8 +5792,8 @@
     "id": "8900151931521901",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Sport",
-    "title": "LONSDALE Basic Sport Hoodie • Серый",
+    "series": "LONSDALE Basic Sport",
+    "title": "LONSDALE Basic Sport Sweatshirt • Белый",
     "category": "Худи и кофты",
     "price_rub": 4064,
     "price_yuan": 149,
@@ -5798,12 +5811,12 @@
     ],
     "colors": [
       {
-        "name": "Серый",
+        "name": "Белый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20250710/7034a1aaa2fa43498a73ca958ca5a0b6.jpg?x-oss-process=image/format,webp",
-        "hex": "#94a3b8"
+        "hex": "#ffffff"
       }
     ],
-    "color": "Серый"
+    "color": "Белый"
   },
   {
     "id": "8900151931521901-2",
@@ -5839,8 +5852,8 @@
     "id": "8900371018282390",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Streetwear",
-    "title": "LONSDALE Classic Streetwear Hoodie • Серый",
+    "series": "LONSDALE Classic Streetwear",
+    "title": "LONSDALE Classic Streetwear Hoodie • Черный",
     "category": "Худи и кофты",
     "price_rub": 3369,
     "price_yuan": 99,
@@ -5858,19 +5871,19 @@
     ],
     "colors": [
       {
-        "name": "Серый",
+        "name": "Черный",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20260905/54e969332e664e91b7c0c073299a8780.jpg?x-oss-process=image/format,webp",
-        "hex": "#94a3b8"
+        "hex": "#111111"
       }
     ],
-    "color": "Серый"
+    "color": "Черный"
   },
   {
     "id": "8900371018282390-2",
     "mainCat": "HOODIES",
     "brand": "LONSDALE",
-    "series": "LONSDALE Streetwear",
-    "title": "LONSDALE Classic Streetwear Hoodie • Белый",
+    "series": "LONSDALE Classic Streetwear",
+    "title": "LONSDALE Classic Streetwear Hoodie • Серый",
     "category": "Худи и кофты",
     "price_rub": 3369,
     "price_yuan": 99,
@@ -5888,12 +5901,12 @@
     ],
     "colors": [
       {
-        "name": "Белый",
+        "name": "Серый",
         "img": "https://cdn-img.thepoizon.ru/pro-img/origin-img/20260905/95424246b9e94c5092ccb821b4b4b78b.jpg?x-oss-process=image/format,webp",
-        "hex": "#ffffff"
+        "hex": "#94a3b8"
       }
     ],
-    "color": "Белый"
+    "color": "Серый"
   },
   {
     "id": "8900101693664246",
@@ -6110,7 +6123,7 @@
     "id": "8900343041878902-2",
     "mainCat": "HOODIES",
     "brand": "Dickies",
-    "series": "Dickies Hoodie",
+    "series": "Dickies Streetwear",
     "title": "Dickies Streetwear Hoodie • Серый",
     "category": "Худи и кофты",
     "price_rub": 4314,
@@ -7464,7 +7477,11 @@
       selectModalGalleryIndex(currentModalGalleryIndex);
     }
 
-    function openProductLightbox() {
+    function openProductLightbox(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
       if (!currentModalItem) return;
       const lb = document.getElementById('productPhotoLightbox');
       const img = document.getElementById('lightboxImg');
