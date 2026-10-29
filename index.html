@@ -2828,7 +2828,7 @@
         </div>
 
         <!-- 1. VIEW A: BIG CATEGORY SELECTION HUB -->
-        <div id="storeCategoryHub" class="cat-hub" style="display: flex;">
+        <div id="storeCategoryHub" class="cat-hub" style="display: none !important;">
           <div class="cat-hub-header">
             <div class="cat-hub-title">Каталог товаров</div>
             <div class="cat-hub-subtitle">Выберите нужную категорию для просмотра:</div>
@@ -2869,12 +2869,13 @@
         </div>
 
         <!-- 2. VIEW B: PRODUCTS FEED FOR SELECTED CATEGORY -->
-        <div id="storeProductFeed" style="display: none; flex-direction: column; flex: 1; overflow: hidden;">
+        <div id="storeProductFeed" style="display: flex; flex-direction: column; flex: 1;">
           <!-- Quick Category Switch Tabs -->
-          <div class="category-tabs-bar" style="display: flex; gap: 8px; padding: 10px 12px; background: #ffffff; border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-            <button type="button" class="cat-tab-pill" id="catTab-SNEAKERS" onclick="selectCategoryFromHub('SNEAKERS')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Кроссовки (74)</button>
-            <button type="button" class="cat-tab-pill" id="catTab-HOODIES" onclick="selectCategoryFromHub('HOODIES')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Худи и кофты (26)</button>
-            <button type="button" class="cat-tab-pill" id="catTab-TEES" onclick="selectCategoryFromHub('TEES')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Футболки (19)</button>
+          <div class="category-tabs-bar" style="display: flex; gap: 8px; padding: 10px 12px; background: #ffffff; border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: sticky; top: 52px; z-index: 980;">
+            <button type="button" class="cat-tab-pill" id="catTab-ALL" onclick="selectCategoryTab('ALL')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid #000; background: #000; color: #fff; cursor: pointer;">Все товары (129)</button>
+            <button type="button" class="cat-tab-pill" id="catTab-SNEAKERS" onclick="selectCategoryTab('SNEAKERS')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Кроссовки (74)</button>
+            <button type="button" class="cat-tab-pill" id="catTab-HOODIES" onclick="selectCategoryTab('HOODIES')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Худи и кофты (26)</button>
+            <button type="button" class="cat-tab-pill" id="catTab-TEES" onclick="selectCategoryTab('TEES')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Футболки (19)</button>
           </div>
 
           
@@ -7071,7 +7072,7 @@
         const vStore = document.getElementById('view-store');
         if (vStore) vStore.style.display = 'flex';
         if (typeof showStoreCategoryHub === 'function') {
-          showStoreCategoryHub();
+          selectCategoryTab('ALL');
         }
         return;
       }
@@ -7464,7 +7465,6 @@
           });
         }
       }
-    }
     }
 
     function navigateModalGallery(delta, e) {
@@ -9258,8 +9258,18 @@
     // ========================================================
     // STOREFRONT & CATALOG BROWSING MODULE
     // ========================================================
+        function selectCategoryTab(cat) {
+      activeCategory = cat || 'ALL';
+      updateCategoryTabPills(activeCategory);
+      setMainCategory(activeCategory);
+    }
+
+    function selectCategoryFromHub(cat) {
+      selectCategoryTab(cat);
+    }
+
     function updateCategoryTabPills(activeCat) {
-      const cats = ['SNEAKERS', 'HOODIES', 'TEES'];
+      const cats = ['ALL', 'SNEAKERS', 'HOODIES', 'TEES'];
       cats.forEach(c => {
         const pill = document.getElementById('catTab-' + c);
         if (pill) {
@@ -9276,71 +9286,8 @@
       });
     }
 
-    function updateTelegramBackButton() {
-      try {
-        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.BackButton) {
-          const feed = document.getElementById('storeProductFeed');
-          const isFeedOpen = feed && feed.style.display !== 'none';
-          const modal = document.getElementById('storeSizeModal');
-          const isModalOpen = modal && modal.classList.contains('active');
-          const lb = document.getElementById('productPhotoLightbox');
-          const isLbOpen = lb && lb.classList.contains('active');
-          const cartM = document.getElementById('cartDrawerModal');
-          const isCartOpen = cartM && cartM.classList.contains('active');
-
-          if (isLbOpen || isModalOpen || isCartOpen || isFeedOpen) {
-            window.Telegram.WebApp.BackButton.show();
-            window.Telegram.WebApp.BackButton.onClick(handleTelegramBackClick);
-          } else {
-            window.Telegram.WebApp.BackButton.hide();
-          }
-        }
-      } catch(e) {}
-    }
-
-    function handleTelegramBackClick() {
-      const lb = document.getElementById('productPhotoLightbox');
-      if (lb && lb.classList.contains('active')) { closeProductLightbox(); return; }
-      const modal = document.getElementById('storeSizeModal');
-      if (modal && modal.classList.contains('active')) { closeStoreSizeModal(); return; }
-      const cartM = document.getElementById('cartDrawerModal');
-      if (cartM && cartM.classList.contains('active')) { closeCartDrawer(); return; }
-      showStoreCategoryHub();
-    }
-
-    function showStoreCategoryHub() {
-      const hub = document.getElementById('storeCategoryHub');
-      const feed = document.getElementById('storeProductFeed');
-      const backBtn = document.getElementById('storeBackToHubBtn');
-      const floatBackBtn = document.getElementById('floatingBackToHubBtn');
-      const topTitle = document.getElementById('storeTopTitle');
-      const topSub = document.getElementById('storeTopSub');
-      if (hub) hub.style.display = 'flex';
-      if (feed) feed.style.display = 'none';
-      if (backBtn) backBtn.style.display = 'none';
-      if (floatBackBtn) floatBackBtn.style.setProperty('display', 'none', 'important');
-      if (topTitle) topTitle.innerText = 'KICKS & WEAR STORE';
-      if (topSub) topSub.innerText = 'Оригиналы с Poizon • Доставка по РФ';
-      window.scrollTo(0, 0);
-      updateTelegramBackButton();
-    }
-
-    function selectCategoryFromHub(cat) {
-      const hub = document.getElementById('storeCategoryHub');
-      const feed = document.getElementById('storeProductFeed');
-      const backBtn = document.getElementById('storeBackToHubBtn');
-      const floatBackBtn = document.getElementById('floatingBackToHubBtn');
-      if (hub) hub.style.display = 'none';
-      if (feed) feed.style.display = 'flex';
-      if (backBtn) backBtn.style.display = 'block';
-      if (floatBackBtn) floatBackBtn.style.setProperty('display', 'flex', 'important');
-      updateCategoryTabPills(cat);
-      setMainCategory(cat);
-      updateTelegramBackButton();
-    }
-
     function setMainCategory(cat) {
-      activeCategory = (cat && cat !== 'ALL') ? cat : 'SNEAKERS';
+      activeCategory = cat || 'ALL';
       selectedBrand = 'ALL';
       selectedSize = 'ALL';
       searchQuery = '';
@@ -9351,9 +9298,10 @@
       if (cBtn) cBtn.style.display = 'none';
 
       const titles = {
-        'SNEAKERS': 'Кроссовки',
-        'HOODIES': 'Худи и кофты',
-        'TEES': 'Футболки'
+        'ALL': 'Все товары (129)',
+        'SNEAKERS': 'Кроссовки (74)',
+        'HOODIES': 'Худи и кофты (26)',
+        'TEES': 'Футболки (19)'
       };
       const titleElem = document.getElementById('storeTopTitle');
       if (titleElem) titleElem.innerText = titles[activeCategory] || 'Каталог товаров';
@@ -9432,7 +9380,7 @@
       if (!grid) return;
 
       let filtered = items.filter(p => {
-        if (p.mainCat !== activeCategory) return false;
+        if (activeCategory !== 'ALL' && p.mainCat !== activeCategory) return false;
         if (selectedBrand !== 'ALL' && p.brand !== selectedBrand) return false;
         if (selectedSize !== 'ALL' && !(p.sizes || []).includes(selectedSize)) return false;
         if (searchQuery) {
@@ -11280,7 +11228,7 @@
     // Initialize mobile scroll sync
     setTimeout(initKanbanMobileScrollSync, 300);
 
-    showStoreCategoryHub();
+    selectCategoryTab('ALL');
   
     // URL Hash screen router (e.g. #crm, #store, #mgr, #tg)
     window.addEventListener('DOMContentLoaded', () => {
@@ -12164,7 +12112,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       if (typeof showStoreCategoryHub === 'function') {
-        showStoreCategoryHub();
+        selectCategoryTab('ALL');
       }
       if (typeof initDropProductSelect === 'function') {
         initDropProductSelect();
