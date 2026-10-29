@@ -311,6 +311,10 @@
     }
 
     .store-top {
+      position: sticky;
+      top: 0;
+      z-index: 990;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
       padding: 14px 16px;
       border-bottom: 1px solid var(--border);
       display: flex;
@@ -2866,6 +2870,13 @@
 
         <!-- 2. VIEW B: PRODUCTS FEED FOR SELECTED CATEGORY -->
         <div id="storeProductFeed" style="display: none; flex-direction: column; flex: 1; overflow: hidden;">
+          <!-- Quick Category Switch Tabs -->
+          <div class="category-tabs-bar" style="display: flex; gap: 8px; padding: 10px 12px; background: #ffffff; border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+            <button type="button" class="cat-tab-pill" id="catTab-SNEAKERS" onclick="selectCategoryFromHub('SNEAKERS')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Кроссовки (74)</button>
+            <button type="button" class="cat-tab-pill" id="catTab-HOODIES" onclick="selectCategoryFromHub('HOODIES')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Худи и кофты (26)</button>
+            <button type="button" class="cat-tab-pill" id="catTab-TEES" onclick="selectCategoryFromHub('TEES')" style="white-space: nowrap; padding: 7px 14px; border-radius: 20px; font-size: 11.5px; font-weight: 700; border: 1px solid var(--border); background: #f1f5f9; color: #1e293b; cursor: pointer;">Футболки (19)</button>
+          </div>
+
           
 
 
@@ -6318,8 +6329,8 @@
     "id": "8900001975100988",
     "mainCat": "TEES",
     "brand": "Carhartt",
-    "series": "Carhartt Tee",
-    "title": "Carhartt K87 Workwear Pocket T-Shirt • Черный",
+    "series": "Carhartt WIP",
+    "title": "Carhartt WIP K87 Pocket T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 3067,
     "price_yuan": 113,
@@ -6349,8 +6360,8 @@
     "id": "8900001237343229",
     "mainCat": "TEES",
     "brand": "Thrasher",
-    "series": "Thrasher Tee",
-    "title": "Thrasher Graphic T-Shirt • Черный",
+    "series": "Thrasher Flame",
+    "title": "Thrasher Flame Logo T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 2546,
     "price_yuan": 76,
@@ -6380,8 +6391,8 @@
     "id": "8900144547223679",
     "mainCat": "TEES",
     "brand": "Jordan",
-    "series": "Jordan Basketball",
-    "title": "Jordan Basketball Graphic T-Shirt • Черный",
+    "series": "Jordan Jumpman",
+    "title": "Jordan Jumpman Flight T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 4104,
     "price_yuan": 188,
@@ -6410,8 +6421,8 @@
     "id": "8900144484986592",
     "mainCat": "TEES",
     "brand": "Jordan",
-    "series": "Jordan Basketball",
-    "title": "Jordan Basketball Graphic T-Shirt • Белый",
+    "series": "Jordan Jumpman",
+    "title": "Jordan Jumpman Flight T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 3755,
     "price_yuan": 163,
@@ -6439,8 +6450,8 @@
     "id": "8900223346202648",
     "mainCat": "TEES",
     "brand": "UNIQLO",
-    "series": "UNIQLO Tee",
-    "title": "UNIQLO Graphic T-Shirt • Белый",
+    "series": "UNIQLO UT",
+    "title": "UNIQLO UT Graphic Collection T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 2314,
     "price_yuan": 59,
@@ -6470,8 +6481,8 @@
     "id": "8900208157635911",
     "mainCat": "TEES",
     "brand": "UNIQLO",
-    "series": "UNIQLO Tee",
-    "title": "UNIQLO Graphic T-Shirt • Белый",
+    "series": "UNIQLO AIRism",
+    "title": "UNIQLO AIRism Oversized Crew Neck T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 3899,
     "price_yuan": 173,
@@ -6500,8 +6511,8 @@
     "id": "8900001452919858",
     "mainCat": "TEES",
     "brand": "Thrasher",
-    "series": "Thrasher Tee",
-    "title": "Thrasher Graphic T-Shirt • Белый",
+    "series": "Thrasher Skate Mag",
+    "title": "Thrasher Skate Mag Classic Logo T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 2304,
     "price_yuan": 58,
@@ -6530,8 +6541,8 @@
     "id": "8900336657250227",
     "mainCat": "TEES",
     "brand": "UNIQLO",
-    "series": "UNIQLO Tee",
-    "title": "UNIQLO Graphic T-Shirt • Белый",
+    "series": "UNIQLO UT",
+    "title": "UNIQLO Graphic Streetwear T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 3499,
     "price_yuan": 144,
@@ -6559,8 +6570,8 @@
     "id": "8900000857861041",
     "mainCat": "TEES",
     "brand": "New Balance",
-    "series": "New Balance Tee",
-    "title": "New Balance Classic T-Shirt • Айвори",
+    "series": "New Balance Athletics",
+    "title": "New Balance Athletics Classic T-Shirt • Айвори",
     "category": "Футболки",
     "price_rub": 3090,
     "price_yuan": 115,
@@ -6589,8 +6600,8 @@
     "id": "8900001324649797",
     "mainCat": "TEES",
     "brand": "Champion",
-    "series": "Champion Tee",
-    "title": "Champion Classic Logo T-Shirt • Черный",
+    "series": "Champion Heritage",
+    "title": "Champion Script Logo T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 2797,
     "price_yuan": 94,
@@ -6618,9 +6629,9 @@
   {
     "id": "8900325637137443",
     "mainCat": "TEES",
-    "brand": "LDJ",
-    "series": "LDJ Tee",
-    "title": "LDJ Classic Streetwear T-Shirt • Черный",
+    "brand": "Nirvana",
+    "series": "Nirvana In Utero",
+    "title": "Nirvana In Utero Vintage Graphic T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 1824,
     "price_yuan": 23,
@@ -6678,8 +6689,8 @@
     "id": "8900070731443345",
     "mainCat": "TEES",
     "brand": "Acne Studios",
-    "series": "Acne Studios Tee",
-    "title": "Acne Studios Minimal T-Shirt • Белый",
+    "series": "Acne Studios 1996",
+    "title": "Acne Studios Stockholm 1996 T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 25719,
     "price_yuan": 1749,
@@ -6707,8 +6718,8 @@
     "id": "8900035159518356",
     "mainCat": "TEES",
     "brand": "Nike",
-    "series": "Nike Dri-FIT",
-    "title": "Nike Dri-FIT Sport T-Shirt • Черный",
+    "series": "Nike Sportswear",
+    "title": "Nike Sportswear Club Essential T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 3406,
     "price_yuan": 138,
@@ -6739,7 +6750,7 @@
     "mainCat": "TEES",
     "brand": "Jordan",
     "series": "Jordan Flight",
-    "title": "Jordan Flight Graphic T-Shirt • Белый",
+    "title": "Jordan Flight MVP Heritage T-Shirt • Белый",
     "category": "Футболки",
     "price_rub": 5765,
     "price_yuan": 308,
@@ -6769,8 +6780,8 @@
     "id": "8900018809317060",
     "mainCat": "TEES",
     "brand": "Nike",
-    "series": "Nike Dri-FIT",
-    "title": "Nike Dri-FIT Graphic T-Shirt • Черный",
+    "series": "Nike Training",
+    "title": "Nike Dri-FIT Swoosh Training T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 3717,
     "price_yuan": 160,
@@ -6860,7 +6871,7 @@
     "mainCat": "TEES",
     "brand": "Under Armour",
     "series": "Under Armour HeatGear",
-    "title": "Under Armour HeatGear Sport T-Shirt • Черный",
+    "title": "Under Armour HeatGear Training T-Shirt • Черный",
     "category": "Футболки",
     "price_rub": 4017,
     "price_yuan": 182,
@@ -9247,27 +9258,85 @@
     // ========================================================
     // STOREFRONT & CATALOG BROWSING MODULE
     // ========================================================
+    function updateCategoryTabPills(activeCat) {
+      const cats = ['SNEAKERS', 'HOODIES', 'TEES'];
+      cats.forEach(c => {
+        const pill = document.getElementById('catTab-' + c);
+        if (pill) {
+          if (c === activeCat) {
+            pill.style.background = '#000000';
+            pill.style.color = '#ffffff';
+            pill.style.borderColor = '#000000';
+          } else {
+            pill.style.background = '#f1f5f9';
+            pill.style.color = '#1e293b';
+            pill.style.borderColor = 'var(--border)';
+          }
+        }
+      });
+    }
+
+    function updateTelegramBackButton() {
+      try {
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.BackButton) {
+          const feed = document.getElementById('storeProductFeed');
+          const isFeedOpen = feed && feed.style.display !== 'none';
+          const modal = document.getElementById('storeSizeModal');
+          const isModalOpen = modal && modal.classList.contains('active');
+          const lb = document.getElementById('productPhotoLightbox');
+          const isLbOpen = lb && lb.classList.contains('active');
+          const cartM = document.getElementById('cartDrawerModal');
+          const isCartOpen = cartM && cartM.classList.contains('active');
+
+          if (isLbOpen || isModalOpen || isCartOpen || isFeedOpen) {
+            window.Telegram.WebApp.BackButton.show();
+            window.Telegram.WebApp.BackButton.onClick(handleTelegramBackClick);
+          } else {
+            window.Telegram.WebApp.BackButton.hide();
+          }
+        }
+      } catch(e) {}
+    }
+
+    function handleTelegramBackClick() {
+      const lb = document.getElementById('productPhotoLightbox');
+      if (lb && lb.classList.contains('active')) { closeProductLightbox(); return; }
+      const modal = document.getElementById('storeSizeModal');
+      if (modal && modal.classList.contains('active')) { closeStoreSizeModal(); return; }
+      const cartM = document.getElementById('cartDrawerModal');
+      if (cartM && cartM.classList.contains('active')) { closeCartDrawer(); return; }
+      showStoreCategoryHub();
+    }
+
     function showStoreCategoryHub() {
       const hub = document.getElementById('storeCategoryHub');
       const feed = document.getElementById('storeProductFeed');
       const backBtn = document.getElementById('storeBackToHubBtn');
+      const floatBackBtn = document.getElementById('floatingBackToHubBtn');
       const topTitle = document.getElementById('storeTopTitle');
       const topSub = document.getElementById('storeTopSub');
       if (hub) hub.style.display = 'flex';
       if (feed) feed.style.display = 'none';
       if (backBtn) backBtn.style.display = 'none';
+      if (floatBackBtn) floatBackBtn.style.setProperty('display', 'none', 'important');
       if (topTitle) topTitle.innerText = 'KICKS & WEAR STORE';
       if (topSub) topSub.innerText = 'Оригиналы с Poizon • Доставка по РФ';
+      window.scrollTo(0, 0);
+      updateTelegramBackButton();
     }
 
     function selectCategoryFromHub(cat) {
       const hub = document.getElementById('storeCategoryHub');
       const feed = document.getElementById('storeProductFeed');
       const backBtn = document.getElementById('storeBackToHubBtn');
+      const floatBackBtn = document.getElementById('floatingBackToHubBtn');
       if (hub) hub.style.display = 'none';
       if (feed) feed.style.display = 'flex';
       if (backBtn) backBtn.style.display = 'block';
+      if (floatBackBtn) floatBackBtn.style.setProperty('display', 'flex', 'important');
+      updateCategoryTabPills(cat);
       setMainCategory(cat);
+      updateTelegramBackButton();
     }
 
     function setMainCategory(cat) {
@@ -9498,7 +9567,7 @@
       if (sheetBody) sheetBody.scrollTop = 0;
       const modalEl = document.getElementById('storeSizeModal');
       if (modalEl) modalEl.scrollTop = 0;
-      window.scrollTo(0, 0);
+      // preserved scroll position
 
       requestAnimationFrame(() => {
         if (sheetBody) sheetBody.scrollTop = 0;
@@ -12102,6 +12171,13 @@
       }
     });
   </script>
+
+    <!-- Floating Back to Categories Button -->
+    <button id="floatingBackToHubBtn" onclick="showStoreCategoryHub()" aria-label="Назад к категориям" style="display: none; position: fixed; bottom: 84px; left: 16px; z-index: 9999; background: #000000; color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.25); border-radius: 30px; padding: 10px 18px; font-size: 12px; font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,0.35); align-items: center; gap: 7px; cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <span>← Категории</span>
+    </button>
+
 </body>
 
 </html>
