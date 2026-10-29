@@ -599,9 +599,27 @@
 
     /* Bottom Store Bar */
     .store-bar-bottom {
-      background: #ffffff;
-      padding: 12px 16px;
-      border-top: 1px solid var(--border);
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      background: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      padding: 10px 16px !important;
+      box-sizing: border-box !important;
+      border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+      z-index: 990 !important;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+    .phone {
+      padding-bottom: 76px !important;
+    }
+    .store-screen {
+      padding-bottom: 76px !important;
     }
 
     .store-order-main-btn {
@@ -848,20 +866,7 @@
     }
 
     /* Address suggestions popup */
-    .addr-suggestions-popup {
-      position: absolute;
-      bottom: 100%;
-      left: 0;
-      right: 0;
-      margin-bottom: 6px;
-      background: #ffffff;
-      border: 1.5px solid #111111;
-      border-radius: 12px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-      z-index: 10000;
-      overflow: hidden;
-      animation: popupFade 0.15s ease-out;
-    }
+    .addr-suggestions-popup { display: none !important; }
 
     @keyframes popupFade {
       from { opacity: 0; transform: translateY(6px); }
@@ -7981,14 +7986,14 @@
       showToast(`Пункт СДЭК выбран: ${city}, ${addr}`);
     }
 
-    function showAddressSuggestions() {
+    function /* removed */ {
       const box = document.getElementById('addressSuggestionsBox');
       if (!box) return;
       filterAddressSuggestions(document.getElementById('cartCustCity')?.value || '');
       box.style.display = 'block';
     }
 
-    function hideAddressSuggestions() {
+    function /* removed */ {
       setTimeout(() => {
         const box = document.getElementById('addressSuggestionsBox');
         if (box) box.style.display = 'none';
@@ -8131,17 +8136,58 @@
       openProductLightbox();
     }
 
-    // --- 6. CART SUBMISSION ---
+    // --- 6. CART SUBMISSION (STRICT VALIDATION) ---
     function submitOrderFromCart() {
-      if (cart.length === 0) {
-        showToast('Корзина пуста');
+      if (!cart || cart.length === 0) {
+        showToast('Ваша корзина пуста');
+        return;
+      }
+
+      const tgInput = document.getElementById('cartCustTg');
+      const phoneInput = document.getElementById('cartCustPhone');
+      const cityInput = document.getElementById('cartCustCity');
+
+      const userTg = (tgInput?.value || '').trim();
+      const userPhone = (phoneInput?.value || '').trim();
+      const userCity = (cityInput?.value || '').trim();
+
+      const phoneDigits = userPhone.replace(/\D/g, '');
+
+      let hasError = false;
+      let firstInvalidInput = null;
+
+      if (!userTg || userTg.length < 2) {
+        hasError = true;
+        if (tgInput) {
+          tgInput.style.border = '2px solid #ef4444';
+          tgInput.style.backgroundColor = '#fef2f2';
+          if (!firstInvalidInput) firstInvalidInput = tgInput;
+        }
+      }
+      if (!userPhone || phoneDigits.length < 10) {
+        hasError = true;
+        if (phoneInput) {
+          phoneInput.style.border = '2px solid #ef4444';
+          phoneInput.style.backgroundColor = '#fef2f2';
+          if (!firstInvalidInput) firstInvalidInput = phoneInput;
+        }
+      }
+      if (!userCity || userCity.length < 3) {
+        hasError = true;
+        if (cityInput) {
+          cityInput.style.border = '2px solid #ef4444';
+          cityInput.style.backgroundColor = '#fef2f2';
+          if (!firstInvalidInput) firstInvalidInput = cityInput;
+        }
+      }
+
+      if (hasError) {
+        if (firstInvalidInput) firstInvalidInput.focus();
+        showToast('Заполните все обязательные поля для доставки СДЭК!');
         return;
       }
 
       const orderId = nextOrderId++;
-      const userTg = (document.getElementById('cartCustTg')?.value || '@alex_urban').trim();
-      const userPhone = (document.getElementById('cartCustPhone')?.value || '+7 (922) 140-92-18').trim();
-      const userCity = (document.getElementById('cartCustCity')?.value || 'Челябинск, ПВЗ СДЭК').trim();
       const orderItems = [...cart];
       const totalRub = orderItems.reduce((a, b) => a + b.price_rub, 0);
 
@@ -10393,10 +10439,35 @@
       const count = cart.length;
       const total = cart.reduce((sum, it) => sum + it.price_rub, 0);
 
+      // Header button count & color
+      const headerCountBadge = document.getElementById('headerCartCountBadge');
+      if (headerCountBadge) headerCountBadge.innerText = count;
+      const headerCartBtn = document.getElementById('headerCartBtn');
+      if (headerCartBtn) {
+        if (count > 0) {
+          headerCartBtn.style.background = '#15803d';
+        } else {
+          headerCartBtn.style.background = '#0f172a';
+        }
+      }
+
+      // Bottom floating bar count, total sum & color
       const countBadge = document.getElementById('cartCountBadge');
       if (countBadge) countBadge.innerText = count;
       const sumBadge = document.getElementById('cartSumBadge');
-      if (sumBadge) sumBadge.innerText = total > 0 ? (total.toLocaleString('ru-RU') + ' ₽ • Оформить →') : '0 ₽ • Каталог';
+      if (sumBadge) {
+        sumBadge.innerText = total > 0 ? `${total.toLocaleString('ru-RU')} ₽ • Оформить заказ →` : 'Перейти в корзину →';
+      }
+      const bottomCartBtn = document.getElementById('bottomCartBarBtn');
+      if (bottomCartBtn) {
+        if (count > 0) {
+          bottomCartBtn.style.background = '#15803d';
+          bottomCartBtn.style.boxShadow = '0 4px 18px rgba(21, 128, 61, 0.45)';
+        } else {
+          bottomCartBtn.style.background = '#000000';
+          bottomCartBtn.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.25)';
+        }
+      }
 
       const sumSub = document.getElementById('cartSumSubtotal');
       if (sumSub) sumSub.innerText = total.toLocaleString('ru-RU') + ' ₽';
